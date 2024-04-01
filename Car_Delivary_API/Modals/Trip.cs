@@ -8,18 +8,28 @@
     public class Trip
     {
         [Key]
-        [Required] public int TripID { get; set; }
-        [Required] public int CustomerID { get; set; }
-        [Required] public int DriverID { get; set; }
-        [Required] public int CarID { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string TripID { get; set; } = Guid.NewGuid().ToString();
+        [Required]
+        [MaxLength(50)]
+        public string UserId { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string DriverID { get; set; }
+        [Required]
+        [MaxLength(50)]
+        public string VehicleID { get; set; }
         public DateTime TripRequestedTimestamp { get; set; }    = DateTime.Now;
         public DateTime TripStartTimestamp { get; set; } = DateTime.Now;
         public DateTime TripEndTimestamp { get; set; } = DateTime.Now;
         public int TripWaitTime { get; set; }
-        [Required] public int StartLocationID { get; set; }
-        [Required] public int EndLocationID { get; set; }
+        [Required] 
+        public int StartLocationID { get; set; }
+        [Required]
+        public int EndLocationID { get; set; }
         public int DriverRating { get; set; }   =   0;
-        public int CustomerRating { get; set; } = 0;
+        public int UserRating { get; set; } = 0;
         public int PaymentID { get; set; }
         public int TripStatus { get; set; }
 

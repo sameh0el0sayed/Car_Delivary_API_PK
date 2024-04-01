@@ -8,8 +8,10 @@
     public class Payment
     {
         [Key]
-        [Required] public int PaymentID { get; set; }
-        [Required] public int TripID { get; set; }
+        [Required] 
+        public string PaymentID { get; set; } = Guid.NewGuid().ToString();
+        [Required]
+        public string TripID { get; set; }
         public DateTime PaymentDate { get; set; } = DateTime.Now;
         [Required] public string PaymentMethod { get; set; }
         [Column(TypeName = "decimal(18,2)")]
@@ -19,7 +21,7 @@
         [Required] public string TransactionID { get; set; }
         public int PaymentStatus { get; set; }
 
-        [ForeignKey("TripID")]
-        public Trip Trip { get; set; }
+        public bool IsActive { get; set; } = false;
+
     }
 }

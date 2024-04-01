@@ -8,15 +8,21 @@
     public class Location
     {
         [Key]
-        public int LocationID { get; set; }
-  
-        public int Latitude { get; set; } = 0;
-        public int Longitude { get; set; } = 0;
+        [MaxLength(50)]
+        public string LocationID { get; set; } = Guid.NewGuid().ToString();
+        [MaxLength(20)]
+        public string Latitude { get; set; } = string.Empty;
+        [MaxLength(20)]
+        public string Longitude { get; set; } = string.Empty;
 
         [MinLength(100)]
         public string LandmarkAddress { get; set; } = string.Empty;
+        [MaxLength(20)]
         public string LandmarkName { get; set; } = string.Empty;
+        [MaxLength(20)]
         public string LandmarkCity { get; set; } = string.Empty;
-        public string Country { get; set; } = string.Empty;
+        [MaxLength(20)]
+        public string Country { get; set; } = string.Empty; 
+        public bool IsActive { get; set; } = false;
     }
 }

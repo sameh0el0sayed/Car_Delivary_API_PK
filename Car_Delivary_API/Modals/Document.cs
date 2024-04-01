@@ -8,17 +8,24 @@
     public class Document
     {
         [Key]
-        public int DocumentID { get; set; }
+        [MaxLength(50)]
+        public string DocumentID { get; set; } = Guid.NewGuid().ToString();
         [Required]
+        [StringLength(50)]
+        public string UserId { get; set; }
+        [Required]
+        [StringLength(50)]
         public string DocName { get; set; }  
         [Required]
+        [StringLength(20)]
         public string DocumentType { get; set; }
         [Required]
+        [StringLength(50)]
         public string DocumentURL { get; set; }  
 
         public DateTime ExpiryDate { get; set; }
         public bool IsExpiry { get; set; }=false;
-        public int UserID { get; set; }
+  
 
         
     }

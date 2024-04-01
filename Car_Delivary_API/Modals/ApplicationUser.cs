@@ -1,4 +1,4 @@
-﻿using Car_Delivary_API.DataSetup;
+﻿using Car_Delivary_API.Database;
 using Microsoft.AspNetCore.Identity;
 
 namespace Car_Delivary_API.Modals
